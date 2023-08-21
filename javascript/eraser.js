@@ -20,7 +20,7 @@ class Eraser extends PaintFunction {
     // Kind of line
     this.context.lineJoin = "round";
     // Width of line
-    this.context.lineWidth = 5;
+    this.context.lineWidth = penWidth;
     // Drawing the line here
     this.context.beginPath();
     this.context.moveTo(coord[0], coord[1]);
@@ -31,7 +31,10 @@ class Eraser extends PaintFunction {
   }
 
   onMouseMove() {}
-  onMouseUp() {}
+  onMouseUp() {
+    // STORE THE DRAWING MOVE
+    beforeDraw();
+  }
   onMouseLeave() {}
   onMouseEnter() {}
 

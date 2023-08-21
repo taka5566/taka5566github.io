@@ -16,11 +16,11 @@ class DrawingLine extends PaintFunction {
   // On mouse down, ensure that the pen has these features
   onMouseDown(coord, event) {
     // Fill in the color
-    this.context.strokeStyle = "#df4b26";
+    this.context.strokeStyle = selectedColor;
     // Kind of line
     this.context.lineJoin = "round";
     // Width of line
-    this.context.lineWidth = 5;
+    this.context.lineWidth = penWidth;
     // Drawing the line here
     this.context.beginPath();
     this.context.moveTo(coord[0], coord[1]);
@@ -31,7 +31,10 @@ class DrawingLine extends PaintFunction {
   }
 
   onMouseMove() {}
-  onMouseUp() {}
+  onMouseUp() {
+    // STORE THE DRAWING MOVE
+    beforeDraw();
+  }
   onMouseLeave() {}
   onMouseEnter() {}
 

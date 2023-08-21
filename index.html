@@ -7,10 +7,16 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Canvas Application</title>
+    <!-- BOOSTRAP CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- CDN BOOSTRAP TO USE ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- LOCAL STYLE CSS -->
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body class="container">
+
+    <!-- CANVAS -->
     <h1>Canvas Application</h1>
     <div id="canvas-container">
       <canvas
@@ -26,6 +32,8 @@
         height="720px"
       ></canvas>
     </div>
+
+    <!-- DRAWING BUTTONS -->
     <div class="buttons">
       <!-- The drawing rectangle button  -->
       <span class="btn btn-primary fa fa-square" id="drawing-rectangle"
@@ -35,23 +43,118 @@
       <span class="btn btn-info fa fa-paint-brush" id="drawing-line"
         >Draw Line</span
       > 
+      <!-- The drawing circle button  -->
        <span class="btn btn-success fa fa-circle" id="drawing-circle"
         >Draw Circle</span
       >
+      <!-- The drawing curve button  -->
       <span class="btn btn-success fa fa-circle" id="quadraticCurve"
         >Quadratic Curve</span
       >
+      <!-- The drawing straight line button  -->
       <span class="btn btn-success fa fa-circle" id="straightLine"
         >Straight Line</span
       >
+      <!-- The eraser button  -->
       <span class="btn btn-success fa fa-circle" id="eraser"
         >Eraser</span
       >
-      <span class="btn btn-success fa fa-circle" id="writeText"
+
+      <!-- The text button  -->
+      <!-- <span class="btn btn-success fa fa-circle" id="writeText"
         >Text</span
-      >
-      <!-- jQuery -->
-      <script
+      > -->
+
+      <!-- TOOLS -->
+      <div id="tools">
+        <!-- btn undo -->
+        <span class="btn btn-sm btn-dark fa fa-paint-brush" id="undo-btn"
+          ><i class="bi bi-arrow-counterclockwise"></i></span
+        >
+        <span class="btn btn-sm btn-dark fa fa-paint-brush" id="redo-btn"
+          ><i class="bi bi-arrow-clockwise"></i></span
+        >
+        <!-- btn clear -->
+        <span
+          class="btn btn-outline-secondary btn-sm btn- fa fa-paint-brush"
+          id="clear-btn"
+          >Clear</span
+        >
+
+        <!-- COLOR SELECTOR-->
+        <div id="color-selector">
+          <div class="color-field btn" style="background: #d73232"></div>
+          <div class="color-field btn" style="background: #6ab248"></div>
+          <div class="color-field btn" style="background: #3a71d1"></div>
+          <div class="color-field btn" style="background: #ffeb35"></div>
+          <div class="color-field btn" style="background: #333"></div>
+
+          <input type="color" class="color-picker" />
+        </div>
+
+        <!-- PEN SIZE -->
+        <div>
+          <label for="pen-range">Pen Size:</label><br />
+          <input id="pen-range" type="range" min="1" max="100" />
+        </div>
+    </div>
+
+
+
+      <!-- FILTER PANEL -->
+      <div class = 'range-container' id = "filter-sliders">
+          <div class = 'filter-slider-indiv'>
+              <form>
+               <div class="form-group-left filter-boxes">
+                <label>Blur:</label><input class = 'checkboxes' type = 'checkbox' id = 'blur-box'></input>
+                 <input id = "blur-range" type="range" class="filter-control-range" min = 0 max = 10 value = 0 step = 1
+                  style="width:85px">
+                </div>
+              </form>
+          </div>
+      <div class = 'filter-slider-indiv'>
+          <form>
+          <div class="form-group-left filter-boxes">
+            <label>Invert:</label><input class = 'checkboxes' type = 'checkbox' id = 'invert-box'></input>
+            <input id = "invert-range" type="range" class="filter-control-range filter-right" min = 0 max = 100 value = 0 step = 1
+            style="width:85px">
+            </div>
+            </form>
+      </div>
+      <div class = 'filter-slider-indiv'>
+          <form>
+          <div class="form-group-left filter-boxes">
+            <label>Grayscale:</label><input class = 'checkboxes' type = 'checkbox' id = 'grayscale-box'></input>
+            <input id = "grayscale-range" type="range" class="filter-control-range" min = 0 max = 100 value = 0 step = 1
+            style="width:85px">
+          </div>
+          </form>
+      </div>
+      <div class = 'filter-slider-indiv'>
+        <form>
+          <div class="form-group-right filter-boxes">
+          <label>Opacity:</label><input class = 'checkboxes' type = 'checkbox' id = 'opacity-box'></input>
+          <input id = "opacity-range" type="range" class="filter-control-range" min = 0 max = 100 value = 100 step = 1
+          style="width:85px">
+          </div>
+        </form>
+      </div>
+      <div class = 'filter-slider-indiv'>
+        <form>
+         <div class="form-group-right filter-boxes">
+         <label>Brightness:</label><input class = 'checkboxes' type = 'checkbox' id = 'brightness-box'></input>
+         <input id = "brightness-range" type="range" class="filter-control-range" min = 0 max = 100 value = 100 step = 1
+          style="width:85px">
+          </div>
+        </form>
+      </div>
+      <div class = 'filter-slider-indiv'>
+        <button id = 'remove-all'>Reset all</button>
+        </div>
+      </div>
+      
+    <!-- jQuery -->
+    <script
       src="https://code.jquery.com/jquery-3.5.1.js"
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
       crossorigin="anonymous"
@@ -72,7 +175,7 @@
       src="./javascript/drawing-rectangle.js"
       type="text/javascript"
     ></script>
-<!-- The drawing circle functionality  -->
+    <!-- The drawing circle functionality  -->
     <script src="./javascript/drawing-circle.js" type="text/javascript"></script>
     <!-- The drawing curve functionality  -->
     <script
@@ -90,10 +193,35 @@
      
     ></script>
     <!-- The write text functionality  -->
-    <script
-      src="javascript\writeText.js"
+    <!-- <script
+      src="javascript\writeText.js" -->
      
     ></script>
+    <!-- The filter functionality  -->
+    <script
+      src="javascript\filter.js"></script>
+    <!-- The Clear functionality  -->
+    <script
+      src="./javascript/clear-btn.js"
+      type="text/javascript"
+    ></script>
+    <!-- The Undo functionality  -->
+    <script
+      src="./javascript/undo-redo.js"
+      type="text/javascript"
+    ></script>
+    <!-- The Color Selector functionality  -->
+    <script
+      src="./javascript/color-selector.js"
+      type="text/javascript"
+    ></script>
+    <!-- The Pen range functionality  -->
+    <script
+      src="./javascript/pen-range.js"
+      type="text/javascript"
+    ></script>
+
+    <!-- FUNCTIONS TO LINK BUTTONS -->
     <script type="text/javascript">
     $(()=>{
       currentFunction =  new DrawingLine(contextReal)
@@ -122,6 +250,15 @@
       $("#writeText").click(() =>{
         currentFunction = new WriteText(contextReal, contextDraft);
 
+      });
+      $("#undo-btn").click(() => {
+          currentFunction = new undoDrawing();
+      });
+      $("#redo-btn").click(() => {
+          currentFunction = new redoDrawing();
+      });
+      $("#clear-btn").click(() => {
+          currentFunction = new clearCanvas();
       });
     })
     </script>

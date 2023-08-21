@@ -8,11 +8,11 @@ class QuadraticCurve extends PaintFunction{
     }
 
     onMouseDown(coord,event){
-        this.contextDraft.strokeStyle = "#df4b26";
+        this.contextDraft.strokeStyle = selectedColor;
         // Kind of line
         this.contextDraft.lineJoin = "round";
         // Width of line
-        this.contextDraft.lineWidth = 5;
+        this.contextDraft.lineWidth = penWidth;
         // Drawing the line here
         if(this.count===0){
             this.origX = coord[0];
@@ -59,11 +59,11 @@ class QuadraticCurve extends PaintFunction{
     onMouseMove() {}
 
     onMouseUp(coord,event){
-        this.contextReal.strokeStyle = "#df4b26";
+        this.contextReal.strokeStyle = selectedColor;
         // Kind of line
         this.contextReal.lineJoin = "round";
         // Width of line
-        this.contextReal.lineWidth = 5;
+        this.contextReal.lineWidth = penWidth;
 
         if(this.count===0){
             this.count++;
@@ -82,6 +82,8 @@ class QuadraticCurve extends PaintFunction{
             // push();
             this.count=0;
         }
+    // STORE THE DRAWING MOVE
+    beforeDraw();
     }
     // onMouseUp(){}
     onMouseLeave() {}
