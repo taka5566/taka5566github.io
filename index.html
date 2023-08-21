@@ -41,6 +41,15 @@
       <span class="btn btn-success fa fa-circle" id="quadraticCurve"
         >Quadratic Curve</span
       >
+      <span class="btn btn-success fa fa-circle" id="straightLine"
+        >Straight Line</span
+      >
+      <span class="btn btn-success fa fa-circle" id="eraser"
+        >Eraser</span
+      >
+      <span class="btn btn-success fa fa-circle" id="writeText"
+        >Text</span
+      >
       <!-- jQuery -->
       <script
       src="https://code.jquery.com/jquery-3.5.1.js"
@@ -65,12 +74,26 @@
     ></script>
 <!-- The drawing circle functionality  -->
     <script src="./javascript/drawing-circle.js" type="text/javascript"></script>
-    <!-- The drawing rectangle functionality  -->
+    <!-- The drawing curve functionality  -->
     <script
       src="./javascript/drawing-curve.js"
       type="text/javascript"
     ></script>
-    
+    <!-- The drawing straight line functionality  -->
+    <script
+      src="javascript\drawing-straightLine.js"
+     
+    ></script>
+    <!-- The eraser functionality  -->
+    <script
+      src="javascript\eraser.js"
+     
+    ></script>
+    <!-- The write text functionality  -->
+    <script
+      src="javascript\writeText.js"
+     
+    ></script>
     <script type="text/javascript">
     $(()=>{
       currentFunction =  new DrawingLine(contextReal)
@@ -81,11 +104,23 @@
         currentFunction = new DrawingLine(contextReal);
       });  
       $("#drawing-circle").click(() =>{
-        currnetFunction = new DrawingCircle(contextReal, ContextDraft);
+        currentFunction = new DrawingCircle(contextReal, contextDraft);
 
       });
       $("#quadraticCurve").click(() =>{
-        currnetFunction = new quadraticCurve(contextReal, ContextDraft);
+        currentFunction = new QuadraticCurve(contextReal, contextDraft);
+
+      });
+      $("#straightLine").click(() =>{
+        currentFunction = new StraightLine(contextReal, contextDraft);
+
+      });
+      $("#eraser").click(() =>{
+        currentFunction = new Eraser(contextReal, contextDraft);
+
+      });
+      $("#writeText").click(() =>{
+        currentFunction = new WriteText(contextReal, contextDraft);
 
       });
     })
