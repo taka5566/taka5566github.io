@@ -1,4 +1,4 @@
-class quadraticCurve extends PaintFunction{
+class QuadraticCurve extends PaintFunction{
 
     constructor(contextDraft,contextReal){
         super();
@@ -8,32 +8,40 @@ class quadraticCurve extends PaintFunction{
     }
 
     onMouseDown(coord,event){
-        this.contextDraft.strokeStyle = draw_color;
+        this.contextDraft.strokeStyle = "#df4b26";
         // Kind of line
         this.contextDraft.lineJoin = "round";
         // Width of line
-        this.contextDraft.lineWidth = draw_width;
+        this.contextDraft.lineWidth = 5;
         // Drawing the line here
         if(this.count===0){
             this.origX = coord[0];
             this.origY = coord[1];
-            saveToSavePoint();
+            
         }
 
     }
 
     onDragging(coord, event) {
         if(this.count===0){
-            this.clearCanvas();
+            this.contextDraft.clearRect(
+            0,
+            0,
+            canvasDraft.width,
+            canvasDraft.height);
             this.contextDraft.beginPath();
             this.contextDraft.moveTo(this.origX, this.origY); 
             this.secondX=coord[0];
-            this.secondY=coord[1]
+            this.secondY=coord[1];
             this.contextDraft.lineTo(this.secondX,this.secondY);
             this.contextDraft.stroke(); 
         }
         else if(this.count===1){
-            this.clearCanvas();
+            this.contextDraft.clearRect(
+            0,
+            0,
+            canvasDraft.width,
+            canvasDraft.height);
             this.contextDraft.beginPath();
             this.contextDraft.moveTo(this.origX,this.origY);
             this.contextDraft.quadraticCurveTo(coord[0],coord[1],this.secondX,this.secondY);
@@ -51,11 +59,11 @@ class quadraticCurve extends PaintFunction{
     onMouseMove() {}
 
     onMouseUp(coord,event){
-        this.contextReal.strokeStyle = draw_color;
+        this.contextReal.strokeStyle = "#df4b26";
         // Kind of line
         this.contextReal.lineJoin = "round";
         // Width of line
-        this.contextReal.lineWidth = draw_width;
+        this.contextReal.lineWidth = 5;
 
         if(this.count===0){
             this.count++;
@@ -67,7 +75,7 @@ class quadraticCurve extends PaintFunction{
             this.contextReal.moveTo(this.origX,this.origY);
             this.contextReal.quadraticCurveTo(coord[0],coord[1],this.secondX,this.secondY);
             this.contextReal.stroke();
-            push();
+            // push();
             this.count=0;
         }
     }
@@ -76,12 +84,12 @@ class quadraticCurve extends PaintFunction{
     onMouseEnter() {}
 
 
-    clearCanvas = () =>{
-        this.contextDraft.clearRect(
-            0,
-            0,
-            canvasDraft.width,
-            canvasDraft.height
-        )
-    }
+    // clearCanvas = () =>{
+    //     this.contextDraft.clearRect(
+    //         0,
+    //         0,
+    //         canvasDraft.width,
+    //         canvasDraft.height
+    //     )
+    // }
 }
