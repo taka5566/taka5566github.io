@@ -70,7 +70,11 @@ class QuadraticCurve extends PaintFunction{
             console.log(this.count)
         }
         else if(this.count===1){
-            this.clearCanvas();
+            this.contextDraft.clearRect(
+            0,
+            0,
+            canvasDraft.width,
+            canvasDraft.height);
             this.contextReal.beginPath();
             this.contextReal.moveTo(this.origX,this.origY);
             this.contextReal.quadraticCurveTo(coord[0],coord[1],this.secondX,this.secondY);
@@ -84,12 +88,12 @@ class QuadraticCurve extends PaintFunction{
     onMouseEnter() {}
 
 
-    // clearCanvas = () =>{
-    //     this.contextDraft.clearRect(
-    //         0,
-    //         0,
-    //         canvasDraft.width,
-    //         canvasDraft.height
-    //     )
-    // }
+    clearCanvas = () =>{
+        this.contextDraft.clearRect(
+            0,
+            0,
+            canvasDraft.width,
+            canvasDraft.height
+        )
+    }
 }
