@@ -1,266 +1,211 @@
-
 <!DOCTYPE html>
 <html class="no-js">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Canvas Application</title>
-    <!-- BOOSTRAP CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!-- CDN BOOSTRAP TO USE ICONS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <!-- LOCAL STYLE CSS -->
-    <link rel="stylesheet" href="./css/style.css">
-  </head>
-  <body class="container">
 
-    <!-- CANVAS -->
-    <h1>Canvas Application</h1>
-    <div id="canvas-container">
-      <canvas
-        id="canvas-real"
-        class="canvas"
-        width="1280px"
-        height="720px"
-      ></canvas>
-      <canvas
-        id="canvas-draft"
-        class="canvas"
-        width="1280px"
-        height="720px"
-      ></canvas>
-    </div>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Canvas Application</title>
+  <!-- BOOSTRAP CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <!-- CDN BOOSTRAP TO USE ICONS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- LOCAL STYLE CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <!-- CANVAS -->
+  <h1 class="display-6">Canvas Application</h1>
+  <div id="canvas-container">
+    <canvas id="canvas-real" class="canvas" width="1280px" height="720px"></canvas>
+    <canvas id="canvas-draft" class="canvas" width="1280px" height="720px"></canvas>
+  </div>
+
+  <div class="wrap">
 
     <!-- DRAWING BUTTONS -->
     <div class="buttons">
       <!-- The drawing rectangle button  -->
-      <span class="btn btn-primary fa fa-square" id="drawing-rectangle"
-        >Draw Rectangle</span
-      >
+      <span class="btn btn-primary fa fa-square" id="drawing-rectangle">Draw Rectangle</span>
       <!-- The drawing line button  -->
-      <span class="btn btn-info fa fa-paint-brush" id="drawing-line"
-        >Draw Line</span
-      > 
+      <span class="btn btn-info fa fa-paint-brush" id="drawing-line">Draw Line</span>
       <!-- The drawing circle button  -->
-       <span class="btn btn-success fa fa-circle" id="drawing-circle"
-        >Draw Circle</span
-      >
+      <span class="btn btn-success fa fa-circle" id="drawing-circle">Draw Circle</span>
       <!-- The drawing curve button  -->
-      <span class="btn btn-success fa fa-circle" id="quadraticCurve"
-        >Quadratic Curve</span
-      >
+      <span class="btn btn-warning fa fa-circle" id="quadraticCurve">Quadratic Curve</span>
       <!-- The drawing straight line button  -->
-      <span class="btn btn-success fa fa-circle" id="straightLine"
-        >Straight Line</span
-      >
-      <!-- The eraser button  -->
-      <span class="btn btn-success fa fa-circle" id="eraser"
-        >Eraser</span
-      >
+      <span class="btn btn-danger fa fa-circle" id="straightLine">Straight Line</span>
 
       <!-- The text button  -->
       <!-- <span class="btn btn-success fa fa-circle" id="writeText"
         >Text</span
       > -->
-
-      <!-- TOOLS -->
-      <div id="tools">
-        <!-- btn undo -->
-        <span class="btn btn-sm btn-dark fa fa-paint-brush" id="undo-btn"
-          ><i class="bi bi-arrow-counterclockwise"></i></span
-        >
-        <span class="btn btn-sm btn-dark fa fa-paint-brush" id="redo-btn"
-          ><i class="bi bi-arrow-clockwise"></i></span
-        >
-        <!-- btn clear -->
-        <span
-          class="btn btn-outline-secondary btn-sm btn- fa fa-paint-brush"
-          id="clear-btn"
-          >Clear</span
-        >
-
-        <!-- COLOR SELECTOR-->
-        <div id="color-selector">
-          <div class="color-field btn" style="background: #d73232"></div>
-          <div class="color-field btn" style="background: #6ab248"></div>
-          <div class="color-field btn" style="background: #3a71d1"></div>
-          <div class="color-field btn" style="background: #ffeb35"></div>
-          <div class="color-field btn" style="background: #333"></div>
-
-          <input type="color" class="color-picker" />
-        </div>
-
-        <!-- PEN SIZE -->
-        <div>
-          <label for="pen-range">Pen Size:</label><br />
-          <input id="pen-range" type="range" min="1" max="100" />
-        </div>
     </div>
 
+    <!-- TOOLS -->
+    <div id="tools">
+      <div class="tools-btn">
+        <!-- The eraser button  -->
+        <span class="btn btn-sm btn-secondary fa fa-circle" id="eraser">Eraser</span>
+        <!-- btn undo -->
+        <span class="btn btn-sm btn-dark fa fa-paint-brush" id="undo-btn"><i
+            class="bi bi-arrow-counterclockwise"></i></span>
+        <!-- btn undo -->
+        <span class="btn btn-sm btn-dark fa fa-paint-brush" id="redo-btn"><i class="bi bi-arrow-clockwise"></i></span>
+        <!-- btn clear -->
+        <span class="btn btn-outline-secondary btn-sm btn- fa fa-paint-brush" id="clear-btn">Clear</span>
+      </div>
 
+      <!-- COLOR SELECTOR-->
+      <div id="color-selector">
+        <div class="color-field btn" style="background: #d73232"></div>
+        <div class="color-field btn" style="background: #6ab248"></div>
+        <div class="color-field btn" style="background: #3a71d1"></div>
+        <div class="color-field btn" style="background: #ffeb35"></div>
+        <div class="color-field btn" style="background: #333"></div>
 
-      <!-- FILTER PANEL -->
-      <div class = 'range-container' id = "filter-sliders">
-          <div class = 'filter-slider-indiv'>
-              <form>
-               <div class="filter-boxes">
-                <label>Blur:</label><input class = 'checkboxes' type = 'checkbox' id = 'blur-box'></input>
-                 <input id = "blur-range" type="range" class="filter-control-range" min = 0 max = 10 value = 0 step = 1
-                  style="width:85px">
-                </div>
-              </form>
-          </div>
-      <div class = 'filter-slider-indiv'>
+        <input type="color" class="color-picker" />
+      </div>
+    </div>
+
+    <!-- RANGE PANEL -->
+      <div class='range-container' id="filter-sliders">
+
+        <!-- PEN SIZE -->
+        <div class="pen-container">
+          <label for="pen-range">Pen Size</label><br />
+          <input id="pen-range" type="range" min="1" max="100" />
+        </div>
+
+        <div>
+        <!-- FILTERS -->
+        <div class='filter-slider-indiv'>
           <form>
-          <div class="filter-boxes">
-            <label>Invert:</label><input class = 'checkboxes' type = 'checkbox' id = 'invert-box'></input>
-            <input id = "invert-range" type="range" class="filter-control-range filter-right" min = 0 max = 100 value = 0 step = 1
-            style="width:85px">
+            <div class="filter-boxes">
+              <label>Blur</label> <input class='checkboxes' type='checkbox' id='blur-box'></input>
+              <input id="blur-range" type="range" class="filter-control-range" min=0 max=10 value=0 step=1
+                style="width:85px">
             </div>
-            </form>
-      </div>
-      <div class = 'filter-slider-indiv'>
-          <form>
-          <div class="filter-boxes">
-            <label>Grayscale:</label><input class = 'checkboxes' type = 'checkbox' id = 'grayscale-box'></input>
-            <input id = "grayscale-range" type="range" class="filter-control-range" min = 0 max = 100 value = 0 step = 1
-            style="width:85px">
-          </div>
           </form>
-      </div>
-      <div class = 'filter-slider-indiv'>
-        <form>
-          <div class="filter-boxes">
-          <label>Opacity:</label><input class = 'checkboxes' type = 'checkbox' id = 'opacity-box'></input>
-          <input id = "opacity-range" type="range" class="filter-control-range" min = 0 max = 100 value = 100 step = 1
-          style="width:85px">
-          </div>
-        </form>
-      </div>
-      <div class = 'filter-slider-indiv'>
-        <form>
-         <div class="filter-boxes">
-         <label>Brightness:</label><input class = 'checkboxes' type = 'checkbox' id = 'brightness-box'></input>
-         <input id = "brightness-range" type="range" class="filter-control-range" min = 0 max = 100 value = 100 step = 1
-          style="width:85px">
-          </div>
-        </form>
-      </div>
-      <div class = 'filter-slider-indiv'>
-        <button id = 'remove-all'>Reset all</button>
+        </div>
+        <div class='filter-slider-indiv'>
+          <form>
+            <div class="filter-boxes">
+              <label>Invert </label> <input class='checkboxes' type='checkbox' id='invert-box'></input>
+              <input id="invert-range" type="range" class="filter-control-range filter-right" min=0 max=100 value=0
+                step=1 style="width:85px">
+            </div>
+          </form>
+        </div>
+      <div>
+        <div class='filter-slider-indiv'>
+          <form>
+            <div class="filter-boxes">
+              <label>Grayscale </label> <input class='checkboxes' type='checkbox' id='grayscale-box'></input>
+              <input id="grayscale-range" type="range" class="filter-control-range" min=0 max=100 value=0 step=1
+                style="width:85px">
+            </div>
+          </form>
+        </div>
+        <div class='filter-slider-indiv'>
+          <form>
+            <div class="filter-boxes">
+              <label>Opacity </label> <input class='checkboxes' type='checkbox' id='opacity-box'></input>
+              <input id="opacity-range" type="range" class="filter-control-range" min=0 max=100 value=100 step=1
+                style="width:85px">
+            </div>
+          </form>
+        </div>
+        <div class='filter-slider-indiv'>
+          <form>
+            <div class="filter-boxes">
+              <label>Brightness </label> <input class='checkboxes' type='checkbox' id='brightness-box'></input>
+              <input id="brightness-range" type="range" class="filter-control-range" min=0 max=100 value=100 step=1
+                style="width:85px">
+            </div>
+          </form>
         </div>
       </div>
-      
-    <!-- jQuery -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
-    <!-- The drawing functionality  -->
-    <script
-      src="./javascript/canvas-common.js"
-      type="text/javascript"
-    ></script>
+      <div class='filter-slider-indiv'>
+        <button id='remove-all' class="btn btn-outline-dark fa fa-circle">Reset all</button>
+      </div>
+    </div>
+    </div>
 
-    <!-- The drawing line functionality  -->
-    <script
-      src="./javascript/drawing-line.js"
-      type="text/javascript"
-    ></script>
-    <!-- The drawing rectangle functionality  -->
-    <script
-      src="./javascript/drawing-rectangle.js"
-      type="text/javascript"
-    ></script>
-    <!-- The drawing circle functionality  -->
-    <script src="./javascript/drawing-circle.js" type="text/javascript"></script>
-    <!-- The drawing curve functionality  -->
-    <script
-      src="./javascript/drawing-curve.js"
-      type="text/javascript"
-    ></script>
-    <!-- The drawing straight line functionality  -->
-    <script
-      src="javascript\drawing-straightLine.js"
-     
-    ></script>
-    <!-- The eraser functionality  -->
-    <script
-      src="javascript\eraser.js"
-     
-    ></script>
-    <!-- The write text functionality  -->
-    <!-- <script
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <!-- The drawing functionality  -->
+  <script src="./javascript/canvas-common.js" type="text/javascript"></script>
+  <!-- The drawing line functionality  -->
+  <script src="./javascript/drawing-line.js" type="text/javascript"></script>
+  <!-- The drawing rectangle functionality  -->
+  <script src="./javascript/drawing-rectangle.js" type="text/javascript"></script>
+  <!-- The drawing circle functionality  -->
+  <script src="./javascript/drawing-circle.js" type="text/javascript"></script>
+  <!-- The drawing curve functionality  -->
+  <script src="./javascript/drawing-curve.js" type="text/javascript"></script>
+  <!-- The drawing straight line functionality  -->
+  <script src="javascript\drawing-straightLine.js"></script>
+  <!-- The eraser functionality  -->
+  <script src="javascript\eraser.js"></script>
+  <!-- The write text functionality  -->
+  <!-- <script
       src="javascript\writeText.js" -->
-     
-    ></script>
-    <!-- The filter functionality  -->
-    <script
-      src="javascript\filter.js"></script>
-    <!-- The Clear functionality  -->
-    <script
-      src="./javascript/clear-btn.js"
-      type="text/javascript"
-    ></script>
-    <!-- The Undo functionality  -->
-    <script
-      src="./javascript/undo-redo.js"
-      type="text/javascript"
-    ></script>
-    <!-- The Color Selector functionality  -->
-    <script
-      src="./javascript/color-selector.js"
-      type="text/javascript"
-    ></script>
-    <!-- The Pen range functionality  -->
-    <script
-      src="./javascript/pen-range.js"
-      type="text/javascript"
-    ></script>
 
-    <!-- FUNCTIONS TO LINK BUTTONS -->
-    <script type="text/javascript">
-    $(()=>{
-      currentFunction =  new DrawingLine(contextReal)
+  </script>
+  <!-- The filter functionality  -->
+  <script src="javascript\filter.js"></script>
+  <!-- The Clear functionality  -->
+  <script src="./javascript/clear-btn.js" type="text/javascript"></script>
+  <!-- The Undo functionality  -->
+  <script src="./javascript/undo-redo.js" type="text/javascript"></script>
+  <!-- The Color Selector functionality  -->
+  <script src="./javascript/color-selector.js" type="text/javascript"></script>
+  <!-- The Pen range functionality  -->
+  <script src="./javascript/pen-range.js" type="text/javascript"></script>
+
+  <!-- FUNCTIONS TO LINK BUTTONS -->
+  <script type="text/javascript">
+    $(() => {
+      currentFunction = new DrawingLine(contextReal)
       $("#drawing-rectangle").click(() => {
         currentFunction = new DrawingRectangle(contextReal, contextDraft);
       });
       $("#drawing-line").click(() => {
         currentFunction = new DrawingLine(contextReal);
-      });  
-      $("#drawing-circle").click(() =>{
+      });
+      $("#drawing-circle").click(() => {
         currentFunction = new DrawingCircle(contextReal, contextDraft);
-
       });
-      $("#quadraticCurve").click(() =>{
+      $("#quadraticCurve").click(() => {
         currentFunction = new QuadraticCurve(contextReal, contextDraft);
-
       });
-      $("#straightLine").click(() =>{
+      $("#straightLine").click(() => {
         currentFunction = new StraightLine(contextReal, contextDraft);
-
       });
-      $("#eraser").click(() =>{
+      $("#eraser").click(() => {
         currentFunction = new Eraser(contextReal, contextDraft);
-
       });
-      $("#writeText").click(() =>{
+      $("#writeText").click(() => {
         currentFunction = new WriteText(contextReal, contextDraft);
-
       });
       $("#undo-btn").click(() => {
-          currentFunction = new undoDrawing();
+        currentFunction = new undoDrawing();
       });
       $("#redo-btn").click(() => {
-          currentFunction = new redoDrawing();
+        currentFunction = new redoDrawing();
       });
       $("#clear-btn").click(() => {
-          currentFunction = new clearCanvas();
+        currentFunction = new clearCanvas();
       });
     })
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>
