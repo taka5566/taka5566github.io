@@ -9,17 +9,18 @@ This is a canvas application that allows you to draw various shapes and perform 
 
 ## Drawing Buttons
 
-- Draw Rectangle: Click this button to draw a rectangle on the canvas.
-- Draw Line: Click this button to draw a straight line on the canvas.
-- Draw Circle: Click this button to draw a circle on the canvas.
-- Quadratic Curve: Click this button to draw a quadratic curve on the canvas.
-- Straight Line: Click this button to draw a straight line on the canvas.
+- Draw Rectangle: Click this button to draw a rectangle.
+- Draw Line: Click this button to draw a straight line.
+- Draw Circle: Click this button to draw a circle.
+- Quadratic Curve: Click this button to draw a quadratic curve.
+- Straight Line: Click this button to draw a straight line.
+- Write Text: Click this button to write text and hit enter to finish process.
 
 ## Tools
 
-- Eraser: Click this button to activate the eraser tool and erase parts of the drawing on the canvas.
-- Undo: Click this button to undo the last action performed on the canvas.
-- Redo: Click this button to redo the previously undone action on the canvas.
+- Eraser: Click this button to activate the eraser tool and erase parts of the drawing .
+- Undo: Click this button to undo the last action performed .
+- Redo: Click this button to redo the previously undone action .
 - Clear: Click this button to clear the entire canvas and remove all drawings.
 
 ## Color Selector
@@ -33,10 +34,10 @@ This is a canvas application that allows you to draw various shapes and perform 
 - Filters: Use the checkboxes and range sliders to apply various filters to the canvas, such as blur, invert, grayscale, opacity, and brightness.
 - Reset all: Click this button to reset all filters and settings to their default values.
 
-Please note that this application requires the following dependencies:
+Please note that this application requires the following dependencies (scripts/CDN):
 
 - Bootstrap CSS: Used for styling the application.
 - Bootstrap Icons: Used for displaying icons.
 - jQuery: Used for handling events and interactions on the canvas.
 
-To use this canvas application, include the necessary dependencies and the `canvas-common.js` script in your HTML file.
+If any issues please contact developers.

@@ -22,12 +22,7 @@ class DrawingRectangle extends PaintFunction {
     // Manipulating the context draft
     this.contextDraft.fillStyle = selectedColor;
     // Allows you to actually draw out your squares
-    this.contextDraft.clearRect(
-      0,
-      0,
-      canvasDraft.width,
-      canvasDraft.height
-    );
+    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     // Pass in the original x and y coordinates, followed by the new coordinates that we get for position x and y
     this.contextDraft.fillRect(
       this.origX,
@@ -42,12 +37,7 @@ class DrawingRectangle extends PaintFunction {
   // Committing the element to the canvas
   onMouseUp(coord) {
     // Clearing the rectangle first
-    this.contextDraft.clearRect(
-      0,
-      0,
-      canvasDraft.width,
-      canvasDraft.height
-    );
+    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     // Commit that drawing to context real
     // Without this commit, it won't actually draw
     this.contextReal.fillRect(

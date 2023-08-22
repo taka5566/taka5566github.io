@@ -73,6 +73,14 @@ body {
   text-align: center;
 }
 
+.btn {
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+}
+
 /* MAKE TITLE ALWAYS SHOW ON CANVAS */
 h1 {
   position: absolute;

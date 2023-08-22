@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
   <!-- CANVAS -->
   <h1 class="display-6">Canvas Application</h1>
   <div id="canvas-container">
@@ -25,7 +26,6 @@
   </div>
 
   <div class="wrap">
-
     <!-- DRAWING BUTTONS -->
     <div class="buttons">
       <!-- The drawing rectangle button  -->
@@ -38,11 +38,10 @@
       <span class="btn btn-warning fa fa-circle" id="quadraticCurve">Quadratic Curve</span>
       <!-- The drawing straight line button  -->
       <span class="btn btn-danger fa fa-circle" id="straightLine">Straight Line</span>
-
-      <!-- The text button  -->
-      <!-- <span class="btn btn-success fa fa-circle" id="writeText"
+      <!-- The writing text button  -->
+      <span class="btn btn-light fa fa-circle" id="writeText"
         >Text</span
-      > -->
+      >
     </div>
 
     <!-- TOOLS -->
@@ -72,15 +71,15 @@
     </div>
 
     <!-- RANGE PANEL -->
-      <div class='range-container' id="filter-sliders">
+    <div class='range-container' id="filter-sliders">
 
-        <!-- PEN SIZE -->
-        <div class="pen-container">
-          <label for="pen-range">Pen Size</label><br />
-          <input id="pen-range" type="range" min="1" max="100" />
-        </div>
+      <!-- PEN SIZE -->
+      <div class="pen-container">
+        <label for="pen-range">Pen Size</label><br />
+        <input id="pen-range" type="range" min="1" max="100" />
+      </div>
 
-        <div>
+      <div>
         <!-- FILTERS -->
         <div class='filter-slider-indiv'>
           <form>
@@ -100,39 +99,39 @@
             </div>
           </form>
         </div>
-      <div>
-        <div class='filter-slider-indiv'>
-          <form>
-            <div class="filter-boxes">
-              <label>Grayscale </label> <input class='checkboxes' type='checkbox' id='grayscale-box'></input>
-              <input id="grayscale-range" type="range" class="filter-control-range" min=0 max=100 value=0 step=1
-                style="width:85px">
-            </div>
-          </form>
+        <div>
+          <div class='filter-slider-indiv'>
+            <form>
+              <div class="filter-boxes">
+                <label>Grayscale </label> <input class='checkboxes' type='checkbox' id='grayscale-box'></input>
+                <input id="grayscale-range" type="range" class="filter-control-range" min=0 max=100 value=0 step=1
+                  style="width:85px">
+              </div>
+            </form>
+          </div>
+          <div class='filter-slider-indiv'>
+            <form>
+              <div class="filter-boxes">
+                <label>Opacity </label> <input class='checkboxes' type='checkbox' id='opacity-box'></input>
+                <input id="opacity-range" type="range" class="filter-control-range" min=0 max=100 value=100 step=1
+                  style="width:85px">
+              </div>
+            </form>
+          </div>
+          <div class='filter-slider-indiv'>
+            <form>
+              <div class="filter-boxes">
+                <label>Brightness </label> <input class='checkboxes' type='checkbox' id='brightness-box'></input>
+                <input id="brightness-range" type="range" class="filter-control-range" min=0 max=100 value=100 step=1
+                  style="width:85px">
+              </div>
+            </form>
+          </div>
         </div>
         <div class='filter-slider-indiv'>
-          <form>
-            <div class="filter-boxes">
-              <label>Opacity </label> <input class='checkboxes' type='checkbox' id='opacity-box'></input>
-              <input id="opacity-range" type="range" class="filter-control-range" min=0 max=100 value=100 step=1
-                style="width:85px">
-            </div>
-          </form>
-        </div>
-        <div class='filter-slider-indiv'>
-          <form>
-            <div class="filter-boxes">
-              <label>Brightness </label> <input class='checkboxes' type='checkbox' id='brightness-box'></input>
-              <input id="brightness-range" type="range" class="filter-control-range" min=0 max=100 value=100 step=1
-                style="width:85px">
-            </div>
-          </form>
+          <button id='remove-all' class="btn btn-outline-dark fa fa-circle">Reset all</button>
         </div>
       </div>
-      <div class='filter-slider-indiv'>
-        <button id='remove-all' class="btn btn-outline-dark fa fa-circle">Reset all</button>
-      </div>
-    </div>
     </div>
 
   </div>
@@ -155,10 +154,8 @@
   <!-- The eraser functionality  -->
   <script src="javascript\eraser.js"></script>
   <!-- The write text functionality  -->
-  <!-- <script
-      src="javascript\writeText.js" -->
-
-  </script>
+  <script
+      src="javascript\writeText.js"></script>
   <!-- The filter functionality  -->
   <script src="javascript\filter.js"></script>
   <!-- The Clear functionality  -->
