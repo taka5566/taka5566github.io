@@ -16,7 +16,10 @@
 
 body {
   overflow: hidden;
-  color: #333;
+  background-image: url("/css/bob-background.png");
+  background-position: calc(100% - 3rem) top;
+  background-repeat: no-repeat;
+  background-size: 45% auto;
 }
 
 /* STYLING  */

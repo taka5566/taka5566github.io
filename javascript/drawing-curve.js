@@ -46,7 +46,6 @@ class QuadraticCurve extends PaintFunction {
       // this.context.stroke();
     }
   }
-  // onDragging(){}
 
   onMouseMove() {}
 

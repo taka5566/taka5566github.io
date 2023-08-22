@@ -152,12 +152,12 @@
   <!-- The drawing straight line functionality  -->
   <script src="javascript\drawing-straightLine.js"></script>
   <!-- The eraser functionality  -->
-  <script src="javascript\eraser.js"></script>
+  <script src="javascript\eraser.js" type="text/javascript" ></script>
   <!-- The write text functionality  -->
   <script
-      src="javascript\writeText.js"></script>
+      src="javascript\writeText.js" type="text/javascript"></script>
   <!-- The filter functionality  -->
-  <script src="javascript\filter.js"></script>
+  <script src="javascript\filter.js" type="text/javascript"></script>
   <!-- The Clear functionality  -->
   <script src="./javascript/clear-btn.js" type="text/javascript"></script>
   <!-- The Undo functionality  -->
@@ -197,6 +197,9 @@
       });
       $("#redo-btn").click(() => {
         currentFunction = new redoDrawing();
+      });
+      $("#clear-btn").click(() => {
+        currentFunction = new clearCanvas();
       });
       $("#clear-btn").click(() => {
         currentFunction = new clearCanvas();

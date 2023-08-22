@@ -35,7 +35,7 @@ class DrawingCircle extends PaintFunction {
       Math.pow(coord[0] - this.origX, 2) + Math.pow(coord[1] - this.origY, 2)
     );
 
-    //start draw on real canvas
+    //start draw again on real canvas
     this.contextReal.beginPath();
     this.contextReal.arc(this.origX, this.origY, radius, 0, 2 * Math.PI);
     this.contextReal.fill();
